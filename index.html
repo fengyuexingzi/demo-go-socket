@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <div>Hello, World!</div>
+    <script>
+        var ws = new WebSocket("ws://localhost:3000/ws")
+        ws.onopen = () => {
+            console.log("open::")
+            ws.send("hi,I'm chrome")
+            ws.close()
+        }
+        ws.onmessage = (e) => {
+            console.log("receive message::\n", e.data)
+        }
+        ws.close = () => {
+            console.log("close::\n")
+        }
+        ws.onerror = (e) => {
+            console.log("error::\n", e)
+        }
+    </script>
+</body>
+
+</html>
